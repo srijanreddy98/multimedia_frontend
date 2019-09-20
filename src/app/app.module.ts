@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { PagesModule } from './pages/pages.module';
+import { MusicPlayerComponent } from './pages/music-player/music-player.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
