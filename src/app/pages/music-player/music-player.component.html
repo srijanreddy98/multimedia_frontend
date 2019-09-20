@@ -1,13 +1,6 @@
-<div fxLayout="row wrap">
-  <div *ngFor="let song of songs" fxFlex="50" fxLayoutAlign="center center">
-    <nb-card style="padding: 4px;">
-      <nb-card-header>{{ song.title }}</nb-card-header>
-      <nb-card-body>
-        <div fxLayoutAlign="center center">
-          <img src="/assets/album_placeholder.jpeg" style = "height:30vw; width: 30vw">
-        </div>
-      </nb-card-body>
-      <nb-card-footer>{{ song.album }}</nb-card-footer>
-    </nb-card>
-  </div>
+<div *ngIf="songView">
+  <app-songs-view [albumId]="albumId"></app-songs-view>
+</div>
+<div *ngIf="!songView">
+  <app-album-view (albumClicked)="albumClicked($event)"></app-album-view>
 </div>

@@ -1,0 +1,13 @@
+<div fxLayout="row wrap">
+  <div *ngFor="let albumn of albumns; let i = index" fxFlex="50" fxLayoutAlign="center center">
+    <nb-card style="padding: 4px;" (click) = "onAlbumSelected(i)">
+      <nb-card-header>{{ albumn.title }}</nb-card-header>
+      <nb-card-body>
+        <div fxLayoutAlign="center center">
+          <img src="/assets/album_placeholder.jpeg" style = "height:30vw; width: 30vw">
+        </div>
+      </nb-card-body>
+      <nb-card-footer>{{ albumn.album }}</nb-card-footer>
+    </nb-card>
+  </div>
+</div>

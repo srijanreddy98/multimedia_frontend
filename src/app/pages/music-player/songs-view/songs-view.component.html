@@ -1,0 +1,10 @@
+<p>{{albumId}}</p>
+
+<nb-card size="small">
+  <nb-list>
+    <nb-list-item *ngFor="let song of songs">
+      <nb-user [name]="song.title" [title]="song.albumartist">
+      </nb-user>
+    </nb-list-item>
+  </nb-list>
+</nb-card>
