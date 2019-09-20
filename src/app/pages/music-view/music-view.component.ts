@@ -13,9 +13,20 @@ export class MusicPlayerComponent implements OnInit {
     src: ['/assets/new.mp3']
   });
   albumId = 2;
+  song = { artist : ['Spor'],
+      album : 'Nightlife, Vol 5.',
+      albumartist : [ 'Andy C', 'Spor' ],
+      title : 'Stronger',
+      year : '2010',
+      track : { no : 1, of : 44 },
+      disk : { no : 1, of : 2 },
+      genre : ['Drum & Bass'],
+      // picture : [ { format : 'jpg', data : <Buffer> } ],
+      duration : 302.41 // in seconds
+    }
   constructor() { }
 
-  songView = false;
+  currentView = 0;
 
   ngOnInit() {
     // this.currentPlaying.play();
@@ -26,11 +37,16 @@ export class MusicPlayerComponent implements OnInit {
   albumClicked(e) {
     console.log(e);
     this.albumId = e;
-    this.songView = true;
+    this.currentView = 1;
   }
 
   backClicked(e) {
     console.log(e);
-    this.songView = false;
+    this.currentView = 0;
+  }
+
+  songClicked(e) {
+    console.log(e);
+    this.currentView = 2;
   }
 }

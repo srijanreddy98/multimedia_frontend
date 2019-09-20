@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class SongsViewComponent implements OnInit {
 
   @Output() backClicked: EventEmitter<any> = new EventEmitter();
+  @Output() songClicked: EventEmitter<any> = new EventEmitter();
 
   songs = [
     { artist : ['Spor'],
@@ -52,6 +53,11 @@ export class SongsViewComponent implements OnInit {
 
   onBackSelected(e) {
     this.backClicked.emit(e);
+    // console.log(e);
+  }
+
+  onSongClicked(e) {
+    this.songClicked.emit(e);
     // console.log(e);
   }
 

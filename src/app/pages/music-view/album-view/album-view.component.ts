@@ -8,6 +8,7 @@ import { Howl, Howler } from 'howler';
 })
 export class AlbumViewComponent implements OnInit {
   @Output() albumClicked: EventEmitter<any> = new EventEmitter();
+
   albumns = [
     { artist : ['Spor'],
       album : 'Nightlife, Vol 5.',
