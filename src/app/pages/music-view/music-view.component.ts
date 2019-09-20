@@ -28,4 +28,9 @@ export class MusicPlayerComponent implements OnInit {
     this.albumId = e;
     this.songView = true;
   }
+
+  backClicked(e) {
+    console.log(e);
+    this.songView = false;
+  }
 }

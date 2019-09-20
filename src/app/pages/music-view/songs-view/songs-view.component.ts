@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-songs-view',
@@ -6,6 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./songs-view.component.scss']
 })
 export class SongsViewComponent implements OnInit {
+
+  @Output() backClicked: EventEmitter<any> = new EventEmitter();
 
   songs = [
     { artist : ['Spor'],
@@ -46,6 +48,11 @@ export class SongsViewComponent implements OnInit {
   constructor() { }
   @Input() albumId = 0;
   ngOnInit() {
+  }
+
+  onBackSelected(e) {
+    this.backClicked.emit(e);
+    // console.log(e);
   }
 
 }
