@@ -1,10 +1,8 @@
-<!-- <p>{{albumId}}</p> -->
-
-<nb-icon icon="arrow-back-outline" (click) = onBackSelected(albumId)></nb-icon>
+<p>{{albumId}}</p>
 
 <nb-card>
-  <nb-list *ngFor="let song of songs; let i = index">
-    <nb-list-item (click) = "onSongClicked(song)">
+  <nb-list>
+    <nb-list-item *ngFor="let song of songs">
       <nb-user [name]="song.title" [title]="song.albumartist">
       </nb-user>
     </nb-list-item>

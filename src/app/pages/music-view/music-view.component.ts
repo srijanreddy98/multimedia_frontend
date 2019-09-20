@@ -31,7 +31,7 @@ export class MusicPlayerComponent implements OnInit {
   ngOnInit() {
     // this.currentPlaying.play();
     // setTimeout(() => {
-    //   this.currentPlaying.stop()
+    //   this.currentPlaying.stop();
     // }, 3000);
   }
   albumClicked(e) {
