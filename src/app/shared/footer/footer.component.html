@@ -1,0 +1,17 @@
+<div fxFlex fxFlexLayout = "row">
+    <div fxFlex = "15" fxLayoutAlign = "center center">
+        <nb-icon icon="skip-back-outline"></nb-icon>
+        <nb-icon icon="play-circle-outline"></nb-icon>
+        <nb-icon icon="skip-forward-outline"></nb-icon>
+    </div>
+    <div fxFlex = "15" fxLayoutAlign = "start center"><img [src] = "picUrl" width="40px" height="40px"></div>
+    <div fxFlex = "70" fxLayout = "row" fxLayoutAlign = "start center">
+        <div fxLayout = "column" fxLayoutAlign = "start center">
+            <div>{{songName}}</div>
+            <div>{{artist}}</div>
+        </div>
+        <!-- <div>
+            <nb-icon icon="star"></nb-icon>
+        </div> -->
+    </div>
+</div>

@@ -8,10 +8,11 @@ import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { PagesModule } from './pages/pages.module';
 import { MusicPlayerComponent } from './pages/music-player/music-player.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,8 @@ import { MusicPlayerComponent } from './pages/music-player/music-player.componen
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
     NbEvaIconsModule,
-    PagesModule
+    PagesModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
