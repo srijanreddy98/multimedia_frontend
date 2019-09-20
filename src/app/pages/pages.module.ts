@@ -9,7 +9,7 @@ import { MusicPlayerModule } from './music-player/music-player.module';
   declarations: [],
   imports: [
     CommonModule,
-    MusicPlayerModule
+    MusicPlayerModule,
   ],
   exports: [MusicPlayerModule]
 })
