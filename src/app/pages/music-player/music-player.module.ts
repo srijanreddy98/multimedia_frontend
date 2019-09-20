@@ -18,7 +18,4 @@ import { NbListModule, NbUserModule, NbCardModule } from '@nebular/theme';
   ]
 })
 export class MusicPlayerModule {
-  // public getJSON(): Observable<any> {
-  //   return this.http.get('../../assets/music.json');
-  // }
 }
