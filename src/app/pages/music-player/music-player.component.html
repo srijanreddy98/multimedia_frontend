@@ -1,1 +1,47 @@
 <p>music-player works!</p>
+<!-- <div fxLayout="column">
+  <div fxLayout="row">
+    <div fxFlex=20>1. One</div> <div fxFlex=60>2. Two</div> <div fxFlex=20>3. Three</div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex=20>1. One</div> <div fxFlex=60>2. Two</div> <div fxFlex=20>3. Three</div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex=20>1. One</div> <div fxFlex=60>2. Two</div> <div fxFlex=20>3. Three</div>
+  </div>
+</div> -->
+
+<!-- <div fxLayout="column" *ngFor = "let song of songs">
+  <div fxFlex=20>
+    {{ song.year }}
+  </div>
+  <div fxFlex=60>
+    {{ song.title }}
+    {{ song.album }}
+    {{ song.artist }}
+  </div>
+  <div fxFlex=20>
+    {{ song.duration }}
+  </div>
+</div> -->
+
+<nb-card size="small">
+  <nb-list>
+    <nb-list-item *ngFor="let song of songs">
+      <nb-user [name]="song.title" [title]="song.album">
+      </nb-user>
+    </nb-list-item>
+  </nb-list>
+</nb-card>
+
+<nb-card *ngFor="let song of songs">
+  <nb-card-header>{{ song.title }}</nb-card-header>
+  <nb-card-body>
+    A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+    Originally, nebula was a name for any diffuse astronomical object,
+    including galaxies beyond the Milky Way.
+  </nb-card-body>
+  <nb-card-footer>{{ song.album }}</nb-card-footer>
+</nb-card>
+
+
