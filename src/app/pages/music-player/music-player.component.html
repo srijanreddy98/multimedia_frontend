@@ -25,16 +25,16 @@
   </div>
 </div> -->
 
-<nb-card size="small">
+<!-- <nb-card size="small">
   <nb-list>
     <nb-list-item *ngFor="let song of songs">
       <nb-user [name]="song.title" [title]="song.album">
       </nb-user>
     </nb-list-item>
   </nb-list>
-</nb-card>
-
-<nb-card *ngFor="let song of songs">
+</nb-card> -->
+<div fxLayout = "row wrap">
+<nb-card fxFlex= "50" *ngFor="let song of songs">
   <nb-card-header>{{ song.title }}</nb-card-header>
   <nb-card-body>
     A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
@@ -43,5 +43,13 @@
   </nb-card-body>
   <nb-card-footer>{{ song.album }}</nb-card-footer>
 </nb-card>
+</div>
+<!-- <div class="card-col">
+  <div class="card-row">
+    <nb-card size="small" *ngFor="let song of songs">
+      <nb-card-footer>{{ song.album }}</nb-card-footer>
+    </nb-card>
+  </div>
+</div> -->
 
 
