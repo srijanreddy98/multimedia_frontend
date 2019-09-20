@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MusicPlayerComponent } from './music-player.component';
+import { MusicPlayerComponent } from './music-view.component';
 
 describe('MusicPlayerComponent', () => {
   let component: MusicPlayerComponent;

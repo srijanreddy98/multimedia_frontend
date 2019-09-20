@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Howl, Howler } from 'howler';
 
 @Component({
-  selector: 'app-music-player',
-  templateUrl: './music-player.component.html',
-  styleUrls: ['./music-player.component.scss']
+  selector: 'app-music-view',
+  templateUrl: './music-view.component.html',
+  styleUrls: ['./music-view.component.scss']
 })
 
 export class MusicPlayerComponent implements OnInit {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MusicPlayerModule } from './music-player/music-player.module';
+import { MusicPlayerModule } from './music/music-view.module';
 // import { MusicPlayerComponent } from './music-player/music-player.component';
 
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MusicPlayerComponent } from './music-player.component';
+import { MusicPlayerComponent } from './music-view.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
