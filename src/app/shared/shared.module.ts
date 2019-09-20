@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NbIconModule } from '@nebular/theme';
+import { NowPlayingService } from '../services/now-playing.service';
 
 
 
@@ -14,6 +15,7 @@ import { NbIconModule } from '@nebular/theme';
     FlexLayoutModule,
     NbIconModule,
   ],
-  exports: [FooterComponent]
+  exports: [FooterComponent],
+  providers: [NowPlayingService]
 })
 export class SharedModule { }
