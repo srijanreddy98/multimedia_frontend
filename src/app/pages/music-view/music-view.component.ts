@@ -25,7 +25,7 @@ export class MusicPlayerComponent implements OnInit {
       // picture : [ { format : 'jpg', data : <Buffer> } ],
       duration : 302.41 // in seconds
     };
-  constructor(private musicDataService: MusicDataService) { }
+  constructor() { }
 
   currentView = 0;
 
@@ -34,10 +34,6 @@ export class MusicPlayerComponent implements OnInit {
     // setTimeout(() => {
     //   this.currentPlaying.stop()
     // }, 3000);
-    this.musicDataService.getSongList().subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    );
   }
   albumClicked(e) {
     console.log(e);

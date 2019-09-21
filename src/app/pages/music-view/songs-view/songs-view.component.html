@@ -2,11 +2,22 @@
 
 <nb-icon icon="arrow-back-outline" (click) = onBackSelected(albumId)></nb-icon>
 
-<nb-card>
+<!-- <nb-card>
   <nb-list *ngFor="let song of songs; let i = index">
     <nb-list-item (click) = "onSongClicked(song)">
-      <nb-user [name]="song.title" [title]="song.albumartist">
+      <nb-user [name]="song.data.album" [title]="song.data.title">
       </nb-user>
     </nb-list-item>
   </nb-list>
+</nb-card> -->
+
+<nb-card>
+  <nb-card-header>Songs</nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item *ngFor="let song of songs" (click) = "onSongClicked(song)">
+        {{ song.data.title }}
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
 </nb-card>

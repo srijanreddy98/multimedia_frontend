@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MusicDataService } from 'src/app/services/music-data.service';
 
 @Component({
   selector: 'app-songs-view',
@@ -10,45 +11,55 @@ export class SongsViewComponent implements OnInit {
   @Output() backClicked: EventEmitter<any> = new EventEmitter();
   @Output() songClicked: EventEmitter<any> = new EventEmitter();
 
-  songs = [
-    { artist : ['Spor'],
-      album : 'Nightlife, Vol 5.',
-      albumartist : [ 'Andy C', 'Spor' ],
-      title : 'Stronger',
-      year : '2010',
-      track : { no : 1, of : 44 },
-      disk : { no : 1, of : 2 },
-      genre : ['Drum & Bass'],
-      // picture : [ { format : 'jpg', data : <Buffer> } ],
-      duration : 302.41 // in seconds
-    },
-    { artist : ['Spor'],
-      album : 'Nightlife, Vol 5.',
-      albumartist : [ 'Andy C', 'Spor' ],
-      title : 'Stronger',
-      year : '2010',
-      track : { no : 1, of : 44 },
-      disk : { no : 1, of : 2 },
-      genre : ['Drum & Bass'],
-      // picture : [ { format : 'jpg', data : <Buffer> } ],
-      duration : 302.41 // in seconds
-    },
-    { artist : ['Spor'],
-      album : 'Nightlife, Vol 5.',
-      albumartist : [ 'Andy C', 'Spor' ],
-      title : 'Stronger',
-      year : '2010',
-      track : { no : 1, of : 44 },
-      disk : { no : 1, of : 2 },
-      genre : ['Drum & Bass'],
-      // picture : [ { format : 'jpg', data : <Buffer> } ],
-      duration : 302.41 // in seconds
-    }
-  ];
+  // songs = [
+  //   { artist : ['Spor'],
+  //     album : 'Nightlife, Vol 5.',
+  //     albumartist : [ 'Andy C', 'Spor' ],
+  //     title : 'Stronger',
+  //     year : '2010',
+  //     track : { no : 1, of : 44 },
+  //     disk : { no : 1, of : 2 },
+  //     genre : ['Drum & Bass'],
+  //     // picture : [ { format : 'jpg', data : <Buffer> } ],
+  //     duration : 302.41 // in seconds
+  //   },
+  //   { artist : ['Spor'],
+  //     album : 'Nightlife, Vol 5.',
+  //     albumartist : [ 'Andy C', 'Spor' ],
+  //     title : 'Stronger',
+  //     year : '2010',
+  //     track : { no : 1, of : 44 },
+  //     disk : { no : 1, of : 2 },
+  //     genre : ['Drum & Bass'],
+  //     // picture : [ { format : 'jpg', data : <Buffer> } ],
+  //     duration : 302.41 // in seconds
+  //   },
+  //   { artist : ['Spor'],
+  //     album : 'Nightlife, Vol 5.',
+  //     albumartist : [ 'Andy C', 'Spor' ],
+  //     title : 'Stronger',
+  //     year : '2010',
+  //     track : { no : 1, of : 44 },
+  //     disk : { no : 1, of : 2 },
+  //     genre : ['Drum & Bass'],
+  //     // picture : [ { format : 'jpg', data : <Buffer> } ],
+  //     duration : 302.41 // in seconds
+  //   }
+  // ];
+  songs = [];
 
-  constructor() { }
+  constructor(private musicDataService: MusicDataService) { }
+
   @Input() albumId = 0;
   ngOnInit() {
+    this.musicDataService.getSongList().subscribe(
+      res => {
+        this.songs = res;
+        console.log(res);
+      },
+      // res => console.log(res),
+      err => console.log(err)
+    );
   }
 
   onBackSelected(e) {
