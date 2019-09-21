@@ -9,6 +9,7 @@ import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbSidebarService } from
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SharedModule } from './shared/shared.module';
     NbEvaIconsModule,
     PagesModule,
     SharedModule,
-    NbSidebarModule
+    NbSidebarModule,
+    HttpClientModule
   ],
   providers: [NbSidebarService],
   bootstrap: [AppComponent]

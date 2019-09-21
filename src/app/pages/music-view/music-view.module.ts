@@ -9,6 +9,7 @@ import { AlbumViewComponent } from './album-view/album-view.component';
 import { SongsViewComponent } from './songs-view/songs-view.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NowPlayingViewComponent } from './now-playing-view/now-playing-view.component';
+import { MusicDataService } from 'src/app/services/music-data.service';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NowPlayingViewComponent } from './now-playing-view/now-playing-view.com
     NbCardModule,
     NbEvaIconsModule,
     NbIconModule
-  ]
+  ],
+  providers: [MusicDataService]
 })
 export class MusicPlayerModule {
 }

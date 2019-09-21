@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Howl, Howler } from 'howler';
+import { MusicDataService } from 'src/app/services/music-data.service';
 
 @Component({
   selector: 'app-music-view',
@@ -23,8 +24,8 @@ export class MusicPlayerComponent implements OnInit {
       genre : ['Drum & Bass'],
       // picture : [ { format : 'jpg', data : <Buffer> } ],
       duration : 302.41 // in seconds
-    }
-  constructor() { }
+    };
+  constructor(private musicDataService: MusicDataService) { }
 
   currentView = 0;
 
@@ -33,6 +34,10 @@ export class MusicPlayerComponent implements OnInit {
     // setTimeout(() => {
     //   this.currentPlaying.stop()
     // }, 3000);
+    this.musicDataService.getSongList().subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );
   }
   albumClicked(e) {
     console.log(e);
