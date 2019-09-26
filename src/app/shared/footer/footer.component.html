@@ -1,6 +1,6 @@
 <div fxFlex fxFlexLayout="row">
-  <div fxFlex="15" fxLayoutAlign="start center"><img [src]="picUrl" width="40px" height="40px"></div>
-  <div fxFlex="70" fxLayout="column" fxLayoutAlign="start center">
+  <div (click) = "changeView()" fxFlex="15" fxLayoutAlign="start center"><img [src]="picUrl" width="40px" height="40px"></div>
+  <div (click) = "changeView()" fxFlex="70" fxLayout="column" fxLayoutAlign="start center">
       <div>{{songName}}</div>
       <div>{{artist}}</div>
     <!-- <div>
@@ -9,7 +9,8 @@
   </div>
   <div fxFlex="15" fxLayoutAlign="center center">
         <nb-icon icon="skip-back-outline"></nb-icon>
-        <nb-icon (click) = "trigger()" icon="play-circle-outline"></nb-icon>
+        <nb-icon *ngIf = "!playing" (click) = "trigger()" icon="play-circle-outline"></nb-icon>
+        <nb-icon *ngIf = "playing" (click) = "trigger()" icon="pause-circle-outline"></nb-icon>
         <nb-icon icon="skip-forward-outline"></nb-icon>
       </div>
 </div>

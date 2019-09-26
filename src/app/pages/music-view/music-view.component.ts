@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Howl, Howler } from 'howler';
 import { MusicDataService } from 'src/app/services/music-data.service';
+import { NowPlayingService } from 'src/app/services/now-playing.service';
 
 @Component({
   selector: 'app-music-view',
@@ -11,32 +12,60 @@ import { MusicDataService } from 'src/app/services/music-data.service';
 export class MusicPlayerComponent implements OnInit {
 
   currentPlaying: Howl = new Howl({
-    src: ['/assets/new.mp3']
+    src: [`/api/play?id=${1}`],
+    html5: true,
+    format: ['MP3']
   });
   albumId = 2;
-  song = { artist : ['Spor'],
-      album : 'Nightlife, Vol 5.',
-      albumartist : [ 'Andy C', 'Spor' ],
-      title : 'Stronger',
-      year : '2010',
-      track : { no : 1, of : 44 },
-      disk : { no : 1, of : 2 },
-      genre : ['Drum & Bass'],
-      // picture : [ { format : 'jpg', data : <Buffer> } ],
-      duration : 302.41 // in seconds
-    };
-  constructor(private musicDataService: MusicDataService) { }
-
-  currentView = 0;
-
+  constructor(private musicDataService: MusicDataService, private nowPlayingService: NowPlayingService) { }
+  song = new Howl({
+    src: [`/api/play?id=${1}`],
+    html5: true,
+    format: ['MP3']
+  });
+  currentView = 1;
+  prevView = 1;
+  songList: any = [];
   ngOnInit() {
     // this.currentPlaying.play();
-    // setTimeout(() => {
-    //   this.currentPlaying.stop()
-    // }, 3000);
     this.musicDataService.getSongList().subscribe(
-      res => console.log(res),
+      res => this.songList = res,
       err => console.log(err)
+    );
+    this.musicDataService.fetchSongList();
+    this.nowPlayingService.getNowPlaying().subscribe(
+      res => {
+        this.song.stop();
+        this.song = new Howl(
+        {
+          src: [`/api/play?id=${res.id}`],
+          html5: true,
+          format: [res.format]
+        }
+      );
+        this.song.play();
+    }
+    );
+    this.song = new Howl(
+      {
+        src: [`/api/play?id=${this.nowPlayingService.nowPlaying.id}`],
+        html5: true,
+        format: [this.nowPlayingService.nowPlaying.format]
+      }
+    );
+    this.song.play();
+    this.nowPlayingService.getPlaying().subscribe(
+      res => res ? this.song.play() : this.song.pause()
+    );
+    this.nowPlayingService.changeViewSubject.subscribe(
+      res => {
+        if (this.currentView === 2) {
+          this.currentView = this.prevView;
+        } else {
+          this.prevView = this.currentView;
+          this.currentView = 2;
+        }
+      }
     );
   }
   albumClicked(e) {

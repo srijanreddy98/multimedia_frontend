@@ -1,12 +1,17 @@
 <!-- <p>{{albumId}}</p> -->
 
-<nb-icon icon="arrow-back-outline" (click) = onBackSelected(albumId)></nb-icon>
+<!-- <nb-icon icon="arrow-back-outline" (click) = onBackSelected(albumId)></nb-icon> -->
 
 <nb-card>
-  <nb-list *ngFor="let song of songs; let i = index">
-    <nb-list-item (click) = "onSongClicked(song)">
-      <nb-user [name]="song.title" [title]="song.albumartist">
-      </nb-user>
-    </nb-list-item>
-  </nb-list>
+  <nb-card-header>
+    <input type="text" nbInput fullWidth (input) = "searchText($event.target.value)">
+  </nb-card-header>
+  <nb-card-body>
+    <nb-list *ngFor="let song of showingSongs; let i = index">
+      <nb-list-item (click)="onSongClicked(song)">
+        <nb-user [name]="song.data.title" [title]="song.data.albumartist">
+        </nb-user>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
 </nb-card>

@@ -1,10 +1,12 @@
-<div *ngIf="currentView === 0">
-  <app-album-view (albumClicked)="albumClicked($event)"></app-album-view>
+<div class="container">
+  <div *ngIf="currentView === 0">
+    <app-album-view (albumClicked)="albumClicked($event)"></app-album-view>
+  </div>
+  <div *ngIf="currentView === 1">
+    <app-songs-view [songsInp] = "songList" (backClicked)="backClicked($event)" (songClicked)="songClicked($event)">
+    </app-songs-view>
+  </div>
+  <div *ngIf="currentView === 2">
+    <app-now-playing-view></app-now-playing-view>
+  </div>
 </div>
-<div *ngIf="currentView === 1">
-  <app-songs-view [albumId]="albumId" (backClicked)="backClicked($event)" (songClicked)="songClicked($event)"></app-songs-view>
-</div>
-<div *ngIf="currentView === 2">
-  <app-now-playing-view [song]="song"></app-now-playing-view>
-</div>
-
