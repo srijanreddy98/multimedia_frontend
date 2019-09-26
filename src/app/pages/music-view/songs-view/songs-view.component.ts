@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NowPlayingService } from 'src/app/services/now-playing.service';
+import { MusicDataService } from 'src/app/services/music-data.service';
+
 
 @Component({
   selector: 'app-songs-view',
