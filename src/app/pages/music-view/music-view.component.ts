@@ -53,7 +53,6 @@ export class MusicPlayerComponent implements OnInit {
         format: [this.nowPlayingService.nowPlaying.format]
       }
     );
-    this.song.play();
     this.nowPlayingService.getPlaying().subscribe(
       res => res ? this.song.play() : this.song.pause()
     );

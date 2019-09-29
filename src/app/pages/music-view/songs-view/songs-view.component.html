@@ -2,11 +2,11 @@
 
 <!-- <nb-icon icon="arrow-back-outline" (click) = onBackSelected(albumId)></nb-icon> -->
 
-<nb-card>
+<nb-card style="height: 75vh">
   <nb-card-header>
-    <input type="text" nbInput fullWidth (input) = "searchText($event.target.value)">
+    <input type="text" nbInput placeholder="Search For Song" fullWidth (input) = "searchText($event.target.value)">
   </nb-card-header>
-  <nb-card-body>
+  <nb-card-body style="overflow-y: scroll;">
     <nb-list *ngFor="let song of showingSongs; let i = index">
       <nb-list-item (click)="onSongClicked(song)">
         <nb-user [name]="song.data.title" [title]="song.data.albumartist">

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NowPlayingService {
-  playing = true;
+  playing = false;
   playingSubject = new Subject();
   nowPlayingSubject: Subject<any> = new Subject();
   changeViewSubject: Subject<any> = new Subject();
